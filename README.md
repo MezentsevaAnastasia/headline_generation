@@ -52,7 +52,7 @@
 ##Pipeline
 1. Препроцессинг - очистка от особенностей верстки текста (html-теги, символ неразрывного пробела);  
 2. Разделение на предложения с помощью nltk.sent_tokenize для русского языка;
-3. Векторизация предложений Universal Sententencs Encoder(USE) с использованием кода из официального [туториала](https://colab.research.google.com/github/tensorflow/hub/blob/master/examples/colab/cross_lingual_similarity_with_tf_hub_multilingual_universal_encoder.ipynb#scrollTo=weXZqLtTJY9b). Вектора заранее посчитаны и находятся в файле ```vectors.pkl```;  
+3. Векторизация предложений Universal Sententencs Encoder(USE) с использованием кода из официального [туториала](https://colab.research.google.com/github/tensorflow/hub/blob/master/examples/colab/cross_lingual_similarity_with_tf_hub_multilingual_universal_encoder.ipynb#scrollTo=weXZqLtTJY9b). Вектора заранее посчитаны в CoLab ```get_USE_vectors.ipynb``` и находятся в файле ```vectors.pkl```;  
 4. Кластеризация текста kmeans, количество кластеров отличалось(отражено в таблице с результатами);
 5. Выбор предложения с наименьшим расстоянием до центра кластеров. 
 
@@ -60,11 +60,11 @@
    
 ##Результаты
 
-Тестовое множество = первые 1000 статей
+Тестовое множество = первые 1000 статей. 
 
 |   | ROUGE-1-F | ROUGE-2-F | ROUGE-3-F |ROUGE-L-F |
 | ------------- | ------------- | -------------| ------------- |------------- |
-|first sentence| 0.19| 0.03| 0.01|0.19|
+|_first sentence_| 0.19| 0.03| 0.01|0.19|
 |USE + 20% от кол-во предложений| 0.13|0.04 |0.01|0.12|
 |USE + 30% от кол-во предложений| 0.16|0.04 |0.01|0.16|
-|USE + 20% от кол-во предложений| 0.13|0.04 |0.01||
+|USE + 40% от кол-во предложений| 0.18|0.04 |0.01|0.18|

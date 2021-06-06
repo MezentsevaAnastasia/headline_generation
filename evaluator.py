@@ -22,4 +22,4 @@ class Evaluator:
         tokenized_sents = list()
         for sent in document:
             tokenized_sents.append(word_tokenize(sent, language="russian"))
-        return tokenized_sents[:len(tokenized_sents)-2]
+        return tokenized_sents
