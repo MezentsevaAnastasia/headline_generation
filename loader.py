@@ -11,6 +11,13 @@ class DatasetLoader:
         self._regex = ['(&nbsp;|&ndash;|  )', '<[^<]+?>']
 
     def load_data(self, preprocess=False, only_texts=False, only_headlines=False):
+        """
+        Load data from dataset
+        :param preprocess: if True, htlm-tag removed
+        :param only_texts: load text without title
+        :param only_headlines: load titles without text
+        :return:
+        """
         result = list()
         with open(self._path, 'rb') as f:
             for line in tqdm(f):

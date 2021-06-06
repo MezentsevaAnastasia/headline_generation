@@ -11,14 +11,27 @@ from loader import DatasetLoader
 
 
 class Generator:
+    """Class for generating title for text"""
 
     def __init__(self):
         pass
 
     def get_title(self, sentences: List[str], vecs) -> str:
+        """
+        Get title of the text
+        :param sentences: text = list of sentences
+        :param vecs: pre-calculated vectors
+        :return: title = the top sentence
+        """
         return self._rank_sents(sentences, vecs)
 
-    def _rank_sents(self, sentences: List[str], vecs):
+    def _rank_sents(self, sentences: List[str], vecs) -> str:
+        """
+        Ranking sentences using clustering
+        :param sentences: list of sentences
+        :param vecs: pre-calculated vectors
+        :return: ranked sentences
+        """
         n_clusters = int(np.ceil(len(sentences)*0.4))
         kmeans = KMeans(n_clusters=n_clusters)
         kmeans = kmeans.fit(vecs)
@@ -33,10 +46,13 @@ class Generator:
 
 if __name__ == '__main__':
     config = load_config('config.json')
+    # load references
     loader = DatasetLoader(config['corpus_path'])
     refs = loader.load_data(only_headlines=True)
+    # load vectors
     with open(config['vectors_path'], 'rb') as vec_f:
         vectors = pickle.load(vec_f)
+    # getting hypothesis
     texts = loader.load_data(preprocess=True, only_texts=True)
     hypos = list()
     for i, text in enumerate(tqdm(texts)):
