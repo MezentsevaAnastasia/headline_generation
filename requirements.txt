@@ -1,0 +1,4 @@
+scikit-learn-0.24.2
+networkx-2.5.1
+nltk
+rouge_metric
