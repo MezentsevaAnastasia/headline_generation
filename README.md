@@ -36,7 +36,7 @@
 ## Pipeline
 1. Препроцессинг - очистка от особенностей верстки текста (html-теги, символ неразрывного пробела);  
 2. Разделение на предложения с помощью nltk.sent_tokenize для русского языка;
-3. Векторизация предложений Universal Sententencs Encoder(USE) с использованием кода из официального [туториала](https://colab.research.google.com/github/tensorflow/hub/blob/master/examples/colab/cross_lingual_similarity_with_tf_hub_multilingual_universal_encoder.ipynb#scrollTo=weXZqLtTJY9b). Вектора заранее посчитаны в CoLab ```get_USE_vectors.ipynb``` и находятся в файле ```vectors.pkl```;  
+3. Векторизация предложений Universal Sententencs Encoder(USE) с использованием кода из официального [туториала](https://colab.research.google.com/github/tensorflow/hub/blob/master/examples/colab/cross_lingual_similarity_with_tf_hub_multilingual_universal_encoder.ipynb#scrollTo=weXZqLtTJY9b). Вектора заранее посчитаны в CoLab ```get_USE_vectors.ipynb``` и находятся в файле ```title_generator/data/vectors.pkl```;  
 4. Кластеризация текста kmeans, количество кластеров отличалось(отражено в таблице с результатами);
 5. Выбор предложения с наименьшим расстоянием до центра кластеров. 
 
@@ -44,7 +44,7 @@
    
 ## Результаты
 
-Тестовое множество = первые 1000 статей. Запуск экспериментов происходит в ```generator.py```.
+Тестовое множество = первые 1000 статей. Запуск экспериментов происходит в ```title_generator/generator.py```.
 
 |   | ROUGE-1-F | ROUGE-2-F | ROUGE-3-F |ROUGE-L-F |
 | ------------- | ------------- | -------------| ------------- |------------- |
