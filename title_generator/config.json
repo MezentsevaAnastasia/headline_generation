@@ -1,0 +1,4 @@
+{
+  "vectors_path": "data/vectors.pkl",
+  "corpus_path": "data/ria_1k.json"
+}
